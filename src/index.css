@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: rgba(51,51,58);
+}
+
 
 @layer base {
     html {

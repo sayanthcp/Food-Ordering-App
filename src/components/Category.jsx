@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {AllMenuContext} from '../context/AllMenuContext'
 import axios from 'axios'
+import Cardish from './Cardish'
 
 const Category = () => {
   //global state
@@ -40,10 +41,7 @@ const Category = () => {
       return item.strCategory === category  
     }).map((item,index) => {
       return(
-        <div key={index}>
-         <img className='rounded-2xl shadow-xl' src={item?.strMealThumb} alt="" />
-         <p className='text-white text-center my-2'>{item?.strMeal}</p>
-        </div>
+        <Cardish item={item} index={index}/>
       )
     })
     setFilteredItem(filteredDishes)
@@ -56,7 +54,7 @@ const Category = () => {
     return(
       <div key={index}>
          <img className='rounded-2xl shadow-xl' src={item?.strMealThumb} alt="" />
-         <p className='text-white text-center my-2'>{item?.strMeal}</p>
+         <p className='text-white/80 text-center my-2 text-xl font-bold'>{item?.strMeal}</p>
       </div>
     )
       }
@@ -68,26 +66,27 @@ const Category = () => {
   },[])
 
   return (
-    <div className='w-full max-w-[1280px] mx-auto'>
+    <div className='w-full py-20 p-4 max-w-[1280px] mx-auto'>
       <h1 className='text-2xl md:text-3xl text-white font-bold text-center my-2'>Categories</h1>
+      <p className='text-white text-center py-4'>Food is important for life. To be healthy and active, we should certainly have enough food. But the foods we eat should also be safe and rich in all the nutrients our body needs</p>
       {category?.map((item,index) => {
         return(
           <>
            <button key={index} onClick={()=>showCategories(item?.strCategory)} 
            className={item.strCategory === active ? 
-            'px-6 py-2 text-lg text-white font-bold bg-green-400 rounded-xl shadow-xl mr-4 my-4 flex-shrink item-center' 
-           : 'px-6 py-2 text-lg text-white font-bold bg-yellow-400 rounded-xl shadow-xl mr-4 my-4 flex-shrink item-center hover:opacity-60'}>{item?.strCategory}</button>
+            'px-6 py-2 text-lg text-white font-bold bg-green-400 rounded-xl shadow-xl mx-2 my-4  item-center' 
+           : 'px-6 py-2 text-lg text-white font-bold bg-yellow-400 rounded-xl shadow-xl mx-2 my-4  item-center hover:opacity-60'}>{item?.strCategory}</button>
           </>
         )
       })}
       
-       <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 my-8'>
+       <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 my-8 max-w-[1280px] mx-auto'>
         {showSingleDish}
-        {showSingleDish !=0 || filteredItem !=0 ? (filteredItem) : 
-        (<div className='w-full'>
-          <h1>no items found</h1>
-          <p>please choose another dishes</p>
-        </div>)}
+        {showSingleDish !=0 || filteredItem !=0 ? filteredItem : 
+        <div className='col-span-2 md:col-span-3 xl:col-span-4 text-center'>
+         <h2 className='text-3xl text-red-500 font-bold'>Sorry, No Dishes Found</h2>
+         <h3 className='text-xl text-white py-2'>Please choose another dishes</h3>
+        </div>}
        </div>
    
     </div>

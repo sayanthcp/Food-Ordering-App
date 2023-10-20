@@ -2,12 +2,22 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className='max-w-[1280px] w-full h-[600px] mx-auto'>
+    <div className=' w-full h-screen md:h-screen max-w-[1280px] mx-auto py-20 md:py-0 relative'>
         <div className='w-full'>
-            <img className='object-cover h-[600px] w-full' src="https://images.pexels.com/photos/1860196/pexels-photo-1860196.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+            <img className='object-cover h-screen md:h-screen w-full' src="https://images.pexels.com/photos/1860196/pexels-photo-1860196.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
         </div>
-        <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full md:max-w-[500px] text-center'>  
-            <p className='text-lg font-medium bg-black/30 text-slate-300 p-4 rounded-2xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus facere obcaecati fuga at. Eum ab sint perspiciatis mollitia recusandae rerum optio perferendis aliquid id, illo non sapiente qui rem veritatis!</p>
+        <div className='absolute w-full h-full top-0 bg-gray-900/30'>
+          <div className='absolute top-0 left-0 w-full h-full justify-center items-center flex flex-col md:flex-row my-20 px-4'>
+            <div className='max-w-[600px]'>
+              <p className='text-green-500 uppercase font-bold text-md'>chef's special</p>
+              <h1 className='text-5xl md:7xl text-white font-bold'>The Real Experience</h1>
+              <p className='text-white/90 font-medium py-4 text-lg'>"Food, in the end, in our own tradition, is something holy. It's not about nutrients and calories. It's about sharing. It's about honesty. It's about identity."</p>
+            </div>
+            <div className='max-w-[600px] py-8'>
+              <img className='rounded-full' src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+            </div>
+          </div>
+
         </div>
       
     </div>

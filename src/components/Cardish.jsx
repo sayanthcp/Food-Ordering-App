@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cardish = ({item,index,PopupHandler}) => {
+const Cardish = ({item,PopupHandler,index}) => {
   return (
     <div key={index} onClick={() => PopupHandler(item?.strMeal)}>
       <img

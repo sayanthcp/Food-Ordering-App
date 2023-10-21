@@ -5,12 +5,25 @@ import Cardish from './Cardish'
 
 const Category = () => {
   //global state
-  const AllMenu = useContext(AllMenuContext)
+  const allMenu = useContext(AllMenuContext)
   //state
   const [category, setCategory] = useState([])
   const [filteredItem, setFilteredItem] = useState([])
   const [active, setActive] = useState('Beef')
   const [singleDish, setSingleDish] = useState([])
+  const [showPopup, setShowPopup] = useState(false)
+  const [popupItem, setPopupItem] = useState([])
+
+  //show popup Handler
+  const PopupHandler = (dishName) => {
+    setShowPopup(true)
+    setPopupItem(dishName)
+  }
+
+  //close popup handler
+  const ClosePopupHandler = () => {
+    setShowPopup(false)
+  }
 
 
   const URL = 'https://www.themealdb.com/api/json/v1/1/categories.php'
@@ -21,7 +34,6 @@ const Category = () => {
   const singleCategory = () => {
     axios.get(url).then((res) => {
       setSingleDish(res.data.meals)
-      console.log(res.data.meals);
     })
   }
 
@@ -37,11 +49,11 @@ const Category = () => {
   const showCategories = (category) => {
     setActive(category)
     setSingleDish([])
-    const filteredDishes = AllMenu.filter((item) => {
+    const filteredDishes = allMenu.filter((item) => {
       return item.strCategory === category  
     }).map((item,index) => {
       return(
-        <Cardish item={item} index={index}/>
+        <Cardish item={item} index={index} PopupHandler={PopupHandler}/>
       )
     })
     setFilteredItem(filteredDishes)
@@ -66,7 +78,7 @@ const Category = () => {
   },[])
 
   return (
-    <div className='w-full py-20 p-4 max-w-[1280px] mx-auto'>
+    <div className='w-full py-20 p-4  mx-auto'>
       <h1 className='text-2xl md:text-3xl text-white font-bold text-center my-2'>Categories</h1>
       <p className='text-white text-center py-4'>Food is important for life. To be healthy and active, we should certainly have enough food. But the foods we eat should also be safe and rich in all the nutrients our body needs</p>
       {category?.map((item,index) => {
@@ -87,6 +99,11 @@ const Category = () => {
          <h2 className='text-3xl text-red-500 font-bold'>Sorry, No Dishes Found</h2>
          <h3 className='text-xl text-white py-2'>Please choose another dishes</h3>
         </div>}
+       </div>
+
+       {/* Popup */}
+       <div>
+          {showPopup && <Popup ClosePopupHandler={ClosePopupHandler} popupItem={popupItem}/>}
        </div>
    
     </div>

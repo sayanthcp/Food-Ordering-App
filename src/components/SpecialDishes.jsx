@@ -4,9 +4,22 @@ import Popup from './Popup'
 import Cardish from './Cardish'
 
 const SpecialDishes = () => {
-    const AllMenu = useContext(AllMenuContext)
+    const allMenu = useContext(AllMenuContext)
+    console.log(allMenu);
 
     const [showPopup, setShowPopup] = useState(false)
+    const [popupItem, setPopupItem] = useState([])
+
+    //show popup Handler
+    const PopupHandler = (dishName) => {
+      setShowPopup(true)
+      setPopupItem(dishName)
+    }
+
+    //close popup handler
+    const ClosePopupHandler = () => {
+      setShowPopup(false)
+    }
     
   return (
     <div className='w-full py-20 px-8'>
@@ -17,11 +30,11 @@ const SpecialDishes = () => {
         </div>
         <div>
           <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1280px] mx-auto'>
-            {AllMenu?.map((item,index) => {
+            {allMenu?.map((item,index) => {
               const maxItem = 8
               if(index < maxItem){
                 return(
-                  <Cardish item={item} index={index}/>
+                  <Cardish item={item} index={index} PopupHandler={PopupHandler} />
                 )
 
               }
@@ -29,8 +42,9 @@ const SpecialDishes = () => {
           </div>
         </div>
 
+      {/* Popup */}
         <div>
-          {showPopup && <Popup />}
+          {showPopup && <Popup ClosePopupHandler={ClosePopupHandler} popupItem={popupItem}/>}
         </div>
       
     </div>

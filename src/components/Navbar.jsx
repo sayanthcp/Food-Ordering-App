@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import {AiOutlineBars,AiOutlineClose} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
+import {SiIfood} from 'react-icons/si'
 
 const Navbar = () => {
   //state
   const [nav, setNav] = useState(false)
   return (
-    <div className='px-8 w-full h-20 items-center flex justify-between md:justify-evenly absolute z-10'> 
-        <Link to='/'>
-          <h1 className='text-2xl font-bold text-white px-2'>Food Magic</h1>
-        </Link>
-
+    <div className='px-8 w-full h-20 items-center flex justify-between  absolute z-10'> 
+          <Link to='/'>
+            <SiIfood size={40} className='md:hidden text-white'/>
+            <h1 className='text-2xl font-bold text-white px-2 hidden md:block'>Food Magic </h1>
+          </Link>
         <div className='hidden md:block'>
           <ul className='flex'>
             <Link to='/'><li className='mr-4 cursor-pointer text-white'>HOME</li></Link> 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className=' w-full h-screen md:h-screen max-w-[1280px] mx-auto py-20 md:py-0 relative'>
+    <div className=' w-full h-screen md:h-screen mx-auto py-20 md:py-0 fixed'>
         <div className='w-full'>
             <img className='object-cover h-screen md:h-screen w-full' src="https://images.pexels.com/photos/1860196/pexels-photo-1860196.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
         </div>

@@ -49,11 +49,11 @@ const Category = () => {
     setSingleDish([]);
     const filteredDishes = allMenu
       .filter((item) => {
-        return item.strCategory === category;
+        return item?.strCategory === category;
       })
-      .map((item, index) => {
+      .map((item, idMeal) => {
         return (
-          <Cardish item={item} key={index} PopupHandler={PopupHandler} />
+          <Cardish item={item} key={idMeal} PopupHandler={PopupHandler} />
         );
       });
     setFilteredItem(filteredDishes);
@@ -61,10 +61,10 @@ const Category = () => {
 
   //show single category dish
   const maxDish = 8;
-  const showSingleDish = singleDish.map((item, index) => {
+  const showSingleDish = singleDish.map((item, index, idMeal) => {
     if (index < maxDish) {
       return (
-        <div key={index}>
+        <div key={idMeal}>
           <img
             className="rounded-2xl shadow-xl"
             src={item?.strMealThumb}
@@ -93,11 +93,12 @@ const Category = () => {
         certainly have enough food. But the foods we eat should also be safe and
         rich in all the nutrients our body needs
       </p>
-      {category?.map((item, index) => {
+
+      {category?.map((item, idMeal) => {
         return (
           <>
             <button
-              key={index}
+              key={idMeal}
               onClick={() => showCategories(item?.strCategory)}
               className={
                 item.strCategory === active

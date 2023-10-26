@@ -8,11 +8,11 @@ const Popup = ({ ClosePopupHandler, popupItem }) => {
 
   const popUp = allMenu
     ?.filter((item) => item?.strMeal === popupItem)
-    .map((item, index) => {
+    .map((item, idMeal) => {
       return (
         <PopupItems
           item={item}
-          key={index}
+          key={idMeal}
           ClosePopupHandler={ClosePopupHandler}
         />
       );

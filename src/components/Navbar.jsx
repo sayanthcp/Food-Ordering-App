@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { AiOutlineBars, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { GiMagicSwirl } from "react-icons/gi";
+import { useSelector } from "react-redux";
+
 
 const Navbar = () => {
   //state
   const [nav, setNav] = useState(false);
+
+  const stateValue = useSelector((state) => state.cart);
 
   //navbar handler
   const NavHandler = () => {
@@ -31,7 +35,7 @@ const Navbar = () => {
             <li className="mr-4 cursor-pointer text-white">CATEGORY</li>
           </Link>
           <Link to="your_cart">
-            <li className="mr-4 cursor-pointer text-white">YOUR CART</li>
+            <li className="mr-4 cursor-pointer text-white">YOUR CART <span className="text-white bg-red-500 rounded-3xl px-1 py-1">{stateValue.cartItems?.length !== 0 ? (stateValue.cartItems?.length) : null}</span></li>
           </Link>
           <Link to="about">
             <li className="mr-4 cursor-pointer text-white">ABOUT US</li>
@@ -86,9 +90,10 @@ const Navbar = () => {
               className="text-gray-100 font-bold p-4 hover:opacity-60"
             >
               YOUR CART
+              <span className="text-red-500 bg-white rounded-full px-1 py-1 ml-1"> {stateValue.cartItems?.length !== 0 ? (stateValue.cartItems?.length) : null}</span>
             </li>
           </Link>
-          <Link to="about">
+          <Link to="about"> 
             <li
               onClick={NavHandler}
               className="text-gray-100 font-bold p-4 hover:opacity-60"

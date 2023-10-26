@@ -1,14 +1,16 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { DispatchContext } from "../context/ReducerContext";
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { addtocart } from "../Redux/features/AddCartSlice";
 
-const PopupItems = ({ item, index, ClosePopupHandler }) => {
-  //global context
-  const dispatch = useContext(DispatchContext)
+const PopupItems = ({ item,ClosePopupHandler }) => {
+
+  const dispatch = useDispatch()
+
+
   return (
     <div
-      key={index}
+      key={item.idMeal}
       className="fixed top-0 bottom-0 left-0 right-0 bg-black/80 z-50 flex justify-center items-center"
     >
       <div className="w-[350px] md:w-[600px] h-[700px] md:h-[700px] bg-black p-4 text-white rounded-lg relative">
@@ -45,15 +47,11 @@ const PopupItems = ({ item, index, ClosePopupHandler }) => {
         </div>
         <div className="absolute right-11 bottom-6">
           <button
-            onClick={() =>
-              dispatch({
-                type: 'order_now',
-                payload: {
-                  image: item.strMealThumb,
-                  name: item.strMeal,
-                },
-              })
-            }
+            onClick={()=>dispatch(addtocart({
+              image:  item.strMealThumb,
+              name:  item.strMeal,
+              id: item.idMeal
+            }))}
             className="bg-green-600 px-6 py-2 rounded-lg font-bold text-lg hover:opacity-80"
           >
             Order Now

@@ -9,6 +9,7 @@ const Navbar = () => {
   //state
   const [nav, setNav] = useState(false);
 
+  //redux state
   const stateValue = useSelector((state) => state.cart);
 
   //navbar handler

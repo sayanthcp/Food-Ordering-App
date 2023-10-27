@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
-import { AllMenuContext } from "../context/AllMenuContext";
+import React from "react";
 import PopupItems from "./PopupItems";
+import { useSelector } from "react-redux";
 
 const Popup = ({ ClosePopupHandler, popupItem }) => {
-  //global state
-  const allMenu = useContext(AllMenuContext);
 
-  const popUp = allMenu
+  //redux data
+   const {originalData} = useSelector((state) => state.cart)
+
+  const popUp = originalData
     ?.filter((item) => item?.strMeal === popupItem)
     .map((item, idMeal) => {
       return (

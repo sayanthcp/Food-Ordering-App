@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AllMenuContext } from "../context/AllMenuContext";
+import React, {  useEffect, useState } from "react";
 import axios from "axios";
 import Cardish from "./Cardish";
 import Popup from "./Popup";
+import { useSelector } from "react-redux";
 
 const Category = () => {
-  //global state
-  const allMenu = useContext(AllMenuContext);
+  //redux state
+  const {originalData} = useSelector((state) => state.cart)
+  
   //state
   const [category, setCategory] = useState([]);
   const [filteredItem, setFilteredItem] = useState([]);
@@ -47,7 +48,7 @@ const Category = () => {
   const showCategories = (category) => {
     setActive(category);
     setSingleDish([]);
-    const filteredDishes = allMenu
+    const filteredDishes = originalData
       .filter((item) => {
         return item?.strCategory === category;
       })

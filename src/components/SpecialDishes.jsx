@@ -1,13 +1,23 @@
-import React, { useContext, useState } from "react";
-import { AllMenuContext } from "../context/AllMenuContext";
+import React, {  useEffect, useState } from "react";
 import Popup from "./Popup";
 import Cardish from "./Cardish";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../Redux/features/AddCartSlice";
 
 const SpecialDishes = () => {
-  const allMenu = useContext(AllMenuContext);
+  //redux state
+   const {originalData} = useSelector(store => store.cart)
 
-  const [showPopup, setShowPopup] = useState(false);
-  const [popupItem, setPopupItem] = useState([]);
+   //state
+   const [showPopup, setShowPopup] = useState(false);
+   const [popupItem, setPopupItem] = useState([]);
+
+   const dispatch = useDispatch()
+
+   useEffect(() => {
+    dispatch(fetchData())
+   },[])
+
 
   //show popup Handler
   const PopupHandler = (dishName) => {
@@ -35,7 +45,7 @@ const SpecialDishes = () => {
       </div>
       <div>
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1280px] mx-auto">
-          {allMenu?.map((item, index) => {
+          {originalData?.map((item, index) => {
             const maxItem = 8;
             if (index < maxItem) {
               return (

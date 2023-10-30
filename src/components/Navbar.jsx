@@ -36,7 +36,9 @@ const Navbar = () => {
             <li className="mr-4 cursor-pointer text-white">CATEGORY</li>
           </Link>
           <Link to="your_cart">
-            <li className="mr-4 cursor-pointer text-white">YOUR CART <span className="text-white bg-red-500 rounded-3xl px-1 py-1">{stateValue.cartItems?.length !== 0 ? (stateValue.cartItems?.length) : null}</span></li>
+            <li className="mr-4 cursor-pointer text-white relative">YOUR CART 
+            {stateValue.cartItems.length !== 0 && <span className="px-1 bg-yellow-500 rounded-full ml-1">{stateValue.cartItems.length}</span>}
+            </li>
           </Link>
           <Link to="about">
             <li className="mr-4 cursor-pointer text-white">ABOUT US</li>
@@ -91,7 +93,7 @@ const Navbar = () => {
               className="text-gray-100 font-bold p-4 hover:opacity-60"
             >
               YOUR CART
-              <span className="text-red-500 bg-white rounded-full px-1 py-1 ml-1"> {stateValue.cartItems?.length !== 0 ? (stateValue.cartItems?.length) : null}</span>
+              {stateValue.cartItems.length !== 0 && <span className="px-1 bg-white text-black rounded-full ml-1">{stateValue.cartItems.length}</span>}
             </li>
           </Link>
           <Link to="about"> 

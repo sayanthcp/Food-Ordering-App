@@ -1,8 +1,8 @@
 import { TbShoppingCartHeart } from "react-icons/tb";
+import { AiFillCloseCircle } from "react-icons/ai";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { removefromcart } from "../Redux/features/AddCartSlice";
 import { useDispatch } from "react-redux";
-import { AiFillCloseCircle } from "react-icons/ai";
 
 const YourCart = () => {
 
@@ -24,7 +24,7 @@ const YourCart = () => {
       </div>
       <div>
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1280px] mx-auto my-8">
-          {originalData.cartItems.map((item, index) => {
+          {originalData?.cartItems.map((item, index) => {
             return (
               <div key={index} className="relative">
                 <img
@@ -38,7 +38,7 @@ const YourCart = () => {
                 <div>
                   <button
                     onClick={() =>
-                      dispatch(removefromcart(item.idMeal))
+                      dispatch(removefromcart(item?.idMeal))
                     }
                   >
                     <AiFillCloseCircle

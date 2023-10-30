@@ -7,7 +7,9 @@ import { Route, Routes } from "react-router-dom";
 import About from "./About";
 import YourCart from "./YourCart";
 
+
 const Menu = () => {
+
   return (
     <div>
       <Navbar />

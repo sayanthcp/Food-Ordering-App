@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cardish = ({item,PopupHandler,idMeal}) => {
   return (
-    <div key={idMeal} onClick={() => PopupHandler(item?.strMeal)}>
+    <div className="cursor-pointer hover:scale-105 ease-in duration-300" key={idMeal} onClick={() => PopupHandler(item?.strMeal)}>
       <img
         className="rounded-2xl shadow-2xl"
         src={item?.strMealThumb}

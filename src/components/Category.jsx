@@ -48,7 +48,7 @@ const Category = () => {
   const showCategories = (category) => {
     setActive(category);
     setSingleDish([]);
-    const filteredDishes = originalData
+   const filteredDishes = originalData
       .filter((item) => {
         return item?.strCategory === category;
       })
@@ -62,7 +62,7 @@ const Category = () => {
 
   //show single category dish
   const maxDish = 8;
-  const showSingleDish = singleDish.map((item, index, idMeal) => {
+  const showSingleDish = singleDish?.map((item, index, idMeal) => {
     if (index < maxDish) {
       return (
         <div key={idMeal}>

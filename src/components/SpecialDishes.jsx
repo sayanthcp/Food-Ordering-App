@@ -8,11 +8,11 @@ const SpecialDishes = () => {
   //redux state
    const {originalData} = useSelector(store => store.cart)
 
+   const dispatch = useDispatch()
+
    //state
    const [showPopup, setShowPopup] = useState(false);
    const [popupItem, setPopupItem] = useState([]);
-
-   const dispatch = useDispatch()
 
    useEffect(() => {
     dispatch(fetchData())

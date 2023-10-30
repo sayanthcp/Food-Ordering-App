@@ -11,9 +11,9 @@ const PopupItems = ({
     strCategory,
     strIngredient1,
     strIngredient2,
-    strInstructions,
     strIngredient3,
     strIngredient4,
+    strInstructions,
   },
   ClosePopupHandler,
 }) => {
@@ -24,7 +24,7 @@ const PopupItems = ({
       key={idMeal}
       className="fixed top-0 bottom-0 left-0 right-0 bg-black/80 z-50 flex justify-center items-center"
     >
-      <div className="w-[350px] md:w-[600px] h-[700px] md:h-[700px] bg-black p-4 text-white rounded-lg relative">
+      <div className="w-[350px] md:w-[600px] h-[700px] bg-black p-4 text-white rounded-lg relative">
         <div className="w-full h-[200px] relative">
           <img
             className="w-full h-full object-cover"

@@ -31,7 +31,7 @@ const SpecialDishes = () => {
   };
 
   return (
-    <div className="w-full py-20 px-8">
+    <div className="w-full md:py-20 px-8">
       <h1 className="text-2xl md:text-3xl font-bold text-white text-center">
         Special Dishes
       </h1>
@@ -51,8 +51,8 @@ const SpecialDishes = () => {
               return (
                 <Cardish
                   item={item}
-                  key={index}
                   PopupHandler={PopupHandler}
+                  key={item?.idMeal}
                 />
               );
             }

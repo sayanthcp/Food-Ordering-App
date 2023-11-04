@@ -3,9 +3,8 @@ import PopupItems from "./PopupItems";
 import { useSelector } from "react-redux";
 
 const Popup = ({ ClosePopupHandler, popupItem }) => {
-
   //redux data
-   const {originalData} = useSelector((state) => state.cart)
+  const { originalData } = useSelector((state) => state.cart);
 
   const popUp = originalData
     ?.filter((item) => item?.strMeal === popupItem)

@@ -20,17 +20,14 @@ const Navbar = () => {
     <div className="px-8 w-full h-20 items-center flex justify-between  absolute z-10">
       <Link to="/">
         <GiMagicSwirl size={50} className="md:hidden text-yellow-400" />
-        <h1 className="text-4xl font-bold text-yellow-300 px-2 hidden md:block">
-          Food Magic{" "}
+        <h1 className="text-4xl font-bold text-yellow-400 hidden md:block bg-black/50 px-6 py-2 rounded-full">
+          Food Magic
         </h1>
       </Link>
       <div className="hidden md:block">
         <ul className="flex">
           <Link to="/">
             <li className="mr-4 cursor-pointer text-white">HOME</li>
-          </Link>
-          <Link to="special">
-            <li className="mr-4 cursor-pointer text-white">SPECIAL</li>
           </Link>
           <Link to="category">
             <li className="mr-4 cursor-pointer text-white">CATEGORY</li>
@@ -54,7 +51,8 @@ const Navbar = () => {
         {nav ? <AiOutlineClose size={25} /> : <AiOutlineBars size={25} />}
       </div>
 
-      {/* Mobile Menu */}
+      {/*-------------- Mobile Menu ---------------*/}
+
       <div
         className={
           nav
@@ -69,14 +67,6 @@ const Navbar = () => {
               className="text-gray-100 font-bold p-4 hover:opacity-60"
             >
               HOME
-            </li>
-          </Link>
-          <Link to="special">
-            <li
-              onClick={NavHandler}
-              className="text-gray-100 font-bold p-4 hover:opacity-60"
-            >
-              SPECIAL
             </li>
           </Link>
           <Link to="category">
@@ -106,6 +96,8 @@ const Navbar = () => {
           </Link>
         </ul>
       </div>
+      
+      {/*-------------- Mobile Menu ---------------*/}
     </div>
   );
 };

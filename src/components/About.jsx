@@ -2,8 +2,8 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='py-24'>
-      <h1 className='text-2xl md:text-3xl font-bold text-white text-center'>ABOUT US</h1>
+    <div className='max-w-[1280px] mx-auto py-10'>
+      <h1 className='text-3xl md:text-4xl font-bold text-white text-center'>ABOUT US</h1>
       <div className='p-4 lg:flex justify-evenly items-center grid lg:grid-cols-2 md:gap-4 lg:py-12'>
           <div className='text-lg lg:text-xl text-yellow-300 text-center pb-8 lg:max-w-[700px]'>
             <p>" We believe in the commitment to our community and in fostering long term relationships with local farmers and fishermen. Our menus reflect these connections, featuring local, seasonal produce and sustainably sourced seafood and meats "</p>

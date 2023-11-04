@@ -52,9 +52,9 @@ const Category = () => {
       .filter((item) => {
         return item?.strCategory === category;
       })
-      .map((item, idMeal) => {
+      .map((item) => {
         return (
-          <Cardish item={item} key={idMeal} PopupHandler={PopupHandler} />
+          <Cardish item={item} PopupHandler={PopupHandler} />
         );
       });
     setFilteredItem(filteredDishes);
@@ -62,10 +62,10 @@ const Category = () => {
 
   //show single category dish
   const maxDish = 8;
-  const showSingleDish = singleDish?.map((item, index, idMeal) => {
+  const showSingleDish = singleDish?.map((item, index) => {
     if (index < maxDish) {
       return (
-        <div key={idMeal}>
+        <div key={index}>
           <img
             className="rounded-2xl shadow-xl"
             src={item?.strMealThumb}
@@ -85,7 +85,7 @@ const Category = () => {
   }, []);
 
   return (
-    <div className="w-full py-20 p-4  mx-auto">
+    <div className="max-w-[1280px] py-20 p-4  mx-auto">
       <h1 className="text-2xl md:text-3xl text-white font-bold text-center my-2">
         Categories
       </h1>
@@ -95,19 +95,20 @@ const Category = () => {
         rich in all the nutrients our body needs
       </p>
 
-      {category?.map((item, idMeal) => {
+      {category?.map((item, index) => {
         return (
           <>
             <button
-              key={idMeal}
+              key={index}
               onClick={() => showCategories(item?.strCategory)}
               className={
                 item.strCategory === active
-                  ? "px-6 py-2 text-lg text-white font-bold bg-green-400 rounded-xl shadow-xl mx-2 my-4  item-center"
-                  : "px-6 py-2 text-lg text-white font-bold bg-yellow-400 rounded-xl shadow-xl mx-2 my-4  item-center hover:opacity-60"
+                  ? "px-6 py-2 text-lg text-white font-bold bg-green-400 rounded-full  shadow-xl mx-2 my-4  item-center"
+                  : "px-6 py-2 text-lg text-white font-bold bg-yellow-400 rounded-full  shadow-xl mx-2 my-4  item-center hover:opacity-60"
               }
             >
               {item?.strCategory}
+
             </button>
           </>
         );

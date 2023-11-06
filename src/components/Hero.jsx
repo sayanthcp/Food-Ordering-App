@@ -12,7 +12,7 @@ const Hero = () => {
       </div>
       <div className="absolute w-full top-0 bg-gray-900/30">
         <div className="absolute top-0 left-0 w-full justify-center items-center flex flex-col gap-5 md:flex-row my-20 px-4">
-          <div className="max-w-[600px]">
+          <div className="max-w-[600px] bg-black/30 p-2 rounded-lg">
             <p className="text-green-500 uppercase font-bold text-md">
               chef's special
             </p>
@@ -27,7 +27,7 @@ const Hero = () => {
           </div>
           <div className="max-w-[600px]">
             <img
-              className="rounded-full w-[300px] md:w-[500px]"
+              className="rounded-full w-[280px] md:w-[500px]"
               src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D"
               alt=""
             />

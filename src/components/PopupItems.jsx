@@ -15,7 +15,7 @@ const PopupItems = ({
     strIngredient4,
     strInstructions,
   },
-  ClosePopupHandler,
+  setShowPopup,
 }) => {
   const dispatch = useDispatch();
 
@@ -72,7 +72,7 @@ const PopupItems = ({
             Order Now
           </button>
         </div>
-        <div className="absolute top-2 right-2" onClick={ClosePopupHandler}>
+        <div className="absolute top-2 right-2" onClick={() => setShowPopup(false)}>
           <AiFillCloseCircle
             size={30}
             className="bg-white rounded-full text-black cursor-pointer hover:text-red-600"

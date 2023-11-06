@@ -2,7 +2,7 @@ import React from "react";
 import PopupItems from "./PopupItems";
 import { useSelector } from "react-redux";
 
-const Popup = ({ ClosePopupHandler, popupItem }) => {
+const Popup = ({ setShowPopup, popupItem }) => {
   //redux data
   const { originalData } = useSelector((state) => state.cart);
 
@@ -13,7 +13,7 @@ const Popup = ({ ClosePopupHandler, popupItem }) => {
         <PopupItems
           item={item}
           key={idMeal}
-          ClosePopupHandler={ClosePopupHandler}
+          setShowPopup={setShowPopup}
         />
       );
     });

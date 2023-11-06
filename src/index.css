@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-gray-800
+    @apply bg-gray-600
 }
 
 
@@ -22,5 +22,7 @@ body {
     a {
         @apply list-none
     }
+
+    
 }
 

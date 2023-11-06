@@ -22,11 +22,6 @@ const Category = () => {
     setPopupItem(dishName);
   };
 
-  //close popup handler
-  const ClosePopupHandler = () => {
-    setShowPopup(false);
-  };
-
   const URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
   const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef";
 
@@ -133,7 +128,7 @@ const Category = () => {
       {/* Popup */}
       <div>
         {showPopup && (
-          <Popup ClosePopupHandler={ClosePopupHandler} popupItem={popupItem} />
+          <Popup setShowPopup={setShowPopup} popupItem={popupItem} />
         )}
       </div>
 

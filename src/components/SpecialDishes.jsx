@@ -25,11 +25,6 @@ const SpecialDishes = () => {
     setPopupItem(dishName);
   };
 
-  //close popup handler
-  const ClosePopupHandler = () => {
-    setShowPopup(false);
-  };
-
   return (
     <div className="w-full md:py-20 px-8">
       <h1 className="text-2xl md:text-3xl font-bold text-white text-center">
@@ -63,7 +58,7 @@ const SpecialDishes = () => {
       {/* Popup */}
       <div>
         {showPopup && (
-          <Popup ClosePopupHandler={ClosePopupHandler} popupItem={popupItem} />
+          <Popup setShowPopup={setShowPopup} popupItem={popupItem} />
         )}
       </div>
       

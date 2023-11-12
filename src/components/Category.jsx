@@ -92,6 +92,7 @@ const Category = () => {
 
       {category?.map((item, index) => {
         return (
+          // category buttons
           <>
             <button
               key={index}
@@ -110,6 +111,7 @@ const Category = () => {
       })}
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 my-8 max-w-[1280px] mx-auto">
+        {/* categories dish section */}
         {showSingleDish}
         {showSingleDish != 0 || filteredItem != 0 ? (
           filteredItem

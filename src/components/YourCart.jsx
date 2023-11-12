@@ -10,7 +10,7 @@ const YourCart = () => {
 
   
   return (
-    <div className="w-full py-20 px-8">
+    <div className="w-full py-10 px-8">
       <div className="flex justify-center items-center  py-4">
         <h1 className="text-3xl md:text-4xl font-bold text-white mr-2">
           Your Cart
@@ -23,7 +23,7 @@ const YourCart = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1280px] mx-auto my-8">
           {originalData?.cartItems.map((item, index) => {
             return (
-             
+           
               <YourCartItems item={item} index={index}/>
              
             );

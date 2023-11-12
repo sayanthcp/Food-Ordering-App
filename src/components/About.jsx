@@ -9,7 +9,7 @@ const About = () => {
             <p>" We believe in the commitment to our community and in fostering long term relationships with local farmers and fishermen. Our menus reflect these connections, featuring local, seasonal produce and sustainably sourced seafood and meats "</p>
           </div>
 
-          <div>
+          <div> 
              <img className='rounded-xl object-cover lg:max-w-[600px] lg:max-h-[700px] hover:scale-105 ease-in-out duration-500' src="https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
           </div>
       </div>

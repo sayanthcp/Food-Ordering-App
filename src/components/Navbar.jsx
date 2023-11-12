@@ -1,9 +1,8 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineBars, AiOutlineClose } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import { GiMagicSwirl } from "react-icons/gi";
 import { useSelector } from "react-redux";
-
 
 const Navbar = () => {
   //state
@@ -26,19 +25,50 @@ const Navbar = () => {
       </Link>
       <div className="hidden md:block">
         <ul className="flex">
-          <NavLink to="/" className={({isActive}) => isActive ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2" : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"}>
-              HOME
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2"
+                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"
+            }
+          >
+            HOME
           </NavLink>
-          <NavLink to="category" className={({isActive}) => isActive ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2" : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"}>
+          <NavLink
+            to="category"
+            className={({ isActive }) =>
+              isActive
+                ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2"
+                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"
+            }
+          >
             CATEGORY
           </NavLink>
-          <NavLink to="your_cart" className={({isActive}) => isActive ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2 relative" : "mr-4 cursor-pointer text-lg text-white hover:opacity-60 relative"}>
-              YOUR CART 
-            {stateValue.cartItems.length !== 0 && <span className="px-1 bg-yellow-500 rounded-full ml-1">{stateValue.cartItems.length}</span>}
-            
+          <NavLink
+            to="your_cart"
+            className={({ isActive }) =>
+              isActive
+                ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2 relative"
+                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60 relative"
+            }
+          >
+            YOUR CART
+            {stateValue.cartItems.length !== 0 && (
+              <span className="px-1 bg-white text-yellow-600 rounded-full ml-1">
+                {stateValue.cartItems.length}
+              </span>
+            )}
           </NavLink>
-          <NavLink to="about" className={({isActive}) => isActive ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2" : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"}>
-              ABOUT US
+          <NavLink
+            to="about"
+            className={({ isActive }) =>
+              isActive
+                ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2"
+                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"
+            }
+          >
+            ABOUT US
           </NavLink>
         </ul>
       </div>
@@ -50,6 +80,7 @@ const Navbar = () => {
       >
         {nav ? <AiOutlineClose size={25} /> : <AiOutlineBars size={25} />}
       </div>
+      
 
       {/*-------------- Mobile Menu ---------------*/}
 
@@ -61,38 +92,61 @@ const Navbar = () => {
         }
       >
         <ul className="w-full flex flex-col mt-12 items-center">
-          <NavLink to="/" 
-              onClick={NavHandler}
-              className={({isActive}) => isActive ? "text-yellow-300 font-bold p-4 hover:opacity-60" : "text-gray-100 font-bold p-4 hover:opacity-60" }>
-          
-              HOME
+          <NavLink
+            to="/"
+            onClick={NavHandler}
+            className={({ isActive }) =>
+              isActive
+                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
+                : "text-gray-100 font-bold p-4 hover:opacity-60"
+            }
+          >
+            HOME
           </NavLink>
 
-          <NavLink to="category"
-          onClick={NavHandler}
-          className={({isActive}) => isActive ? "text-yellow-300 font-bold p-4 hover:opacity-60" : "text-gray-100 font-bold p-4 hover:opacity-60" }>
-            
-              CATEGORY         
+          <NavLink
+            to="category"
+            onClick={NavHandler}
+            className={({ isActive }) =>
+              isActive
+                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
+                : "text-gray-100 font-bold p-4 hover:opacity-60"
+            }
+          >
+            CATEGORY
           </NavLink>
 
-          <NavLink to="your_cart"
-          onClick={NavHandler}
-          className={({isActive}) => isActive ? "text-yellow-300 font-bold p-4 hover:opacity-60" : "text-gray-100 font-bold p-4 hover:opacity-60" }>
-            
-              YOUR CART
-              {stateValue.cartItems.length !== 0 && <span className="px-1 bg-white text-black rounded-full ml-1">{stateValue.cartItems.length}</span>}           
+          <NavLink
+            to="your_cart"
+            onClick={NavHandler}
+            className={({ isActive }) =>
+              isActive
+                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
+                : "text-gray-100 font-bold p-4 hover:opacity-60"
+            }
+          >
+            YOUR CART
+            {stateValue.cartItems.length !== 0 && (
+              <span className="px-1 bg-white text-yellow-600 text-black rounded-full ml-1">
+                {stateValue.cartItems.length}
+              </span>
+            )}
           </NavLink>
 
-          <NavLink to="about"
-          onClick={NavHandler}
-          className={({isActive}) => isActive ? "text-yellow-300 font-bold p-4 hover:opacity-60" : "text-gray-100 font-bold p-4 hover:opacity-60" }> 
-            
-              ABOUT US
+          <NavLink
+            to="about"
+            onClick={NavHandler}
+            className={({ isActive }) =>
+              isActive
+                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
+                : "text-gray-100 font-bold p-4 hover:opacity-60"
+            }
+          >
+            ABOUT US
           </NavLink>
-
         </ul>
       </div>
-      
+
       {/*-------------- Mobile Menu ---------------*/}
     </div>
   );

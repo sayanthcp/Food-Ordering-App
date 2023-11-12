@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
+// URL
 const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c'
 
+// data fetching
 export const fetchData = createAsyncThunk('data/fetchdata', async () => {
     const response = await axios(url)
     return response.data

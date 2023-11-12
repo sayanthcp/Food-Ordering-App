@@ -8,9 +8,11 @@ const YourCartItems = ({ item, index }) => {
   const dispatch = useDispatch();
 
   return (
+     //  cart items
     <div key={index} className="relative">
+      <div className="w-full h-full absolute bg-gradient-to-t from-black/70"></div>
       <img
-        className="whitespace-normal border-2"
+        className="border-2"
         src={item?.strMealThumb}
         alt=""
       />

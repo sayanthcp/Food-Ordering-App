@@ -26,7 +26,7 @@ const SpecialDishes = () => {
   };
 
   return (
-    <div className="w-full md:py-20 px-8">
+    <div className="w-full mt-10 md:py-20 px-8">
       <h1 className="text-2xl md:text-3xl font-bold text-white text-center">
         Special Dishes
       </h1>
@@ -40,6 +40,7 @@ const SpecialDishes = () => {
       </div>
       <div>
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1280px] mx-auto">
+          {/* special dish section */}
           {originalData?.map((item, index) => {
             const maxItem = 8;
             if (index < maxItem) {

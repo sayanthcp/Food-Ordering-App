@@ -5,24 +5,38 @@ import { GiMagicSwirl } from "react-icons/gi";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  //state
   const [nav, setNav] = useState(false);
 
-  //redux state
   const stateValue = useSelector((state) => state.cart);
 
-  //navbar handler
   const NavHandler = () => {
     setNav(!nav);
   };
+
   return (
-    <div className="px-8 w-full h-20 items-center flex justify-between  absolute z-10">
+    <div className="px-6 md:px-8 w-full h-20 items-center flex justify-between absolute z-10">
+      {/* Modern Logo */}
       <Link to="/">
-        <GiMagicSwirl size={50} className="md:hidden text-yellow-400" />
-        <h1 className="text-4xl font-bold text-yellow-400 hidden md:block bg-black/30 px-6 py-2 rounded-full">
-          Food Magic
-        </h1>
+        <div className="flex items-center gap-3 group">
+          <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 p-2 rounded-full shadow-lg shadow-yellow-500/30 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+            <GiMagicSwirl
+              size={32}
+              className="text-white drop-shadow-lg"
+            />
+          </div>
+
+          <div className="hidden md:flex flex-col">
+            <span className="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent">
+              Food Magic
+            </span>
+            <span className="text-xs text-gray-300 tracking-[3px] uppercase">
+              Taste the Magic
+            </span>
+          </div>
+        </div>
       </Link>
+
+      {/* Desktop Menu */}
       <div className="hidden md:block">
         <ul className="flex">
           <NavLink
@@ -30,42 +44,45 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2"
-                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"
+                : "mr-4 cursor-pointer text-lg text-white hover:text-yellow-300 transition-all"
             }
           >
             HOME
           </NavLink>
+
           <NavLink
             to="category"
             className={({ isActive }) =>
               isActive
                 ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2"
-                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"
+                : "mr-4 cursor-pointer text-lg text-white hover:text-yellow-300 transition-all"
             }
           >
             CATEGORY
           </NavLink>
+
           <NavLink
             to="your_cart"
             className={({ isActive }) =>
               isActive
                 ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2 relative"
-                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60 relative"
+                : "mr-4 cursor-pointer text-lg text-white hover:text-yellow-300 transition-all relative"
             }
           >
             YOUR CART
             {stateValue.cartItems.length !== 0 && (
-              <span className="px-1 bg-white text-yellow-600 rounded-full ml-1">
+              <span className="absolute -top-2 -right-5 min-w-[22px] h-[22px] flex items-center justify-center text-xs bg-yellow-400 text-black rounded-full font-bold">
                 {stateValue.cartItems.length}
               </span>
             )}
           </NavLink>
+
           <NavLink
             to="about"
             className={({ isActive }) =>
               isActive
                 ? "mr-4 cursor-pointer text-lg text-yellow-300 border-b-[3px] border-yellow-300 pb-2"
-                : "mr-4 cursor-pointer text-lg text-white hover:opacity-60"
+                : "mr-4 cursor-pointer text-lg text-white hover:text-yellow-300 transition-all"
             }
           >
             ABOUT US
@@ -73,22 +90,20 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* Menu Button */}
+      {/* Mobile Menu Button */}
       <div
         onClick={NavHandler}
-        className="block text-white md:hidden cursor-pointer z-10"
+        className="block text-white md:hidden cursor-pointer z-20"
       >
-        {nav ? <AiOutlineClose size={25} /> : <AiOutlineBars size={25} />}
+        {nav ? <AiOutlineClose size={28} /> : <AiOutlineBars size={28} />}
       </div>
-      
 
-      {/*-------------- Mobile Menu ---------------*/}
-
+      {/* Mobile Menu */}
       <div
         className={
           nav
-            ? "md:hidden fixed left-0 top-20 w-full h-screen  bg-black/80 flex flex-col ease-in duration-300 z-10"
-            : "fixed left-[-100%] top-20 w-full h-screen bg-black/80 flex flex-col ease-in duration-300 z-10"
+            ? "md:hidden fixed left-0 top-20 w-full h-screen bg-black/90 backdrop-blur-sm flex flex-col ease-in duration-300 z-10"
+            : "fixed left-[-100%] top-20 w-full h-screen bg-black/90 backdrop-blur-sm flex flex-col ease-in duration-300 z-10"
         }
       >
         <ul className="w-full flex flex-col mt-12 items-center">
@@ -97,8 +112,8 @@ const Navbar = () => {
             onClick={NavHandler}
             className={({ isActive }) =>
               isActive
-                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
-                : "text-gray-100 font-bold p-4 hover:opacity-60"
+                ? "text-yellow-300 font-bold p-4 text-lg"
+                : "text-white font-bold p-4 text-lg hover:text-yellow-300"
             }
           >
             HOME
@@ -109,8 +124,8 @@ const Navbar = () => {
             onClick={NavHandler}
             className={({ isActive }) =>
               isActive
-                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
-                : "text-gray-100 font-bold p-4 hover:opacity-60"
+                ? "text-yellow-300 font-bold p-4 text-lg"
+                : "text-white font-bold p-4 text-lg hover:text-yellow-300"
             }
           >
             CATEGORY
@@ -121,13 +136,13 @@ const Navbar = () => {
             onClick={NavHandler}
             className={({ isActive }) =>
               isActive
-                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
-                : "text-gray-100 font-bold p-4 hover:opacity-60"
+                ? "text-yellow-300 font-bold p-4 text-lg"
+                : "text-white font-bold p-4 text-lg hover:text-yellow-300"
             }
           >
             YOUR CART
             {stateValue.cartItems.length !== 0 && (
-              <span className="px-1 bg-white text-yellow-600 text-black rounded-full ml-1">
+              <span className="ml-2 px-2 py-1 bg-yellow-400 text-black rounded-full text-xs font-bold">
                 {stateValue.cartItems.length}
               </span>
             )}
@@ -138,16 +153,14 @@ const Navbar = () => {
             onClick={NavHandler}
             className={({ isActive }) =>
               isActive
-                ? "text-yellow-300 font-bold p-4 hover:opacity-60"
-                : "text-gray-100 font-bold p-4 hover:opacity-60"
+                ? "text-yellow-300 font-bold p-4 text-lg"
+                : "text-white font-bold p-4 text-lg hover:text-yellow-300"
             }
           >
             ABOUT US
           </NavLink>
         </ul>
       </div>
-
-      {/*-------------- Mobile Menu ---------------*/}
     </div>
   );
 };
